@@ -1,27 +1,26 @@
 import React,{useState} from 'react'
 import './Header.css'
 import {Link} from 'react-router-dom'
+import HelpBox from './HelpBox'
 
 
-const Overlay = () => {
-    return(
-        <div className="overlay"/>
-    )
-}
+
 
 const PhoneMenu = (props) => {
     return(
-        <div className="menu--phone_cont">
-        <i className="fas fa-times menu--phone_xbtn" onClick = {props.toggelMenu}></i>
-        <div className="menu--phone">
-            <ul>
-                <img src="..\img\pawprint.png" alt="" className="menu--phone_Logo"/>
-                <li>Register</li>
-                <li>menu Item</li>
-                <li>menu Item2</li>
-            </ul>
+        <div className="overlay">
+            <i className="fas fa-times menu--phone_xbtn" onClick = {props.toggelMenu}></i>
+            <HelpBox></HelpBox>
+            <div className="menu--phone_cont">
+                    <ul>
+                        <img src="..\img\pawprint.png" alt="" className="menu--phone_Logo"/>
+                        <li>Register</li>
+                        <li>menu Item</li>
+                        <li>menu Item2</li>
+                    </ul>
+            </div>
         </div>
-        </div>
+    
     )
 }
 
@@ -44,6 +43,9 @@ const Header = () => {
     }
     window.addEventListener('resize',() => {
         setWideMenu(window.innerWidth > 1400 ? true : false)
+        if(window.innerWidth>1400 && menuOpen){
+            toggelMenu()
+        }
     })
     return(
     <>  
@@ -65,7 +67,7 @@ const Header = () => {
                 <img src="..\img\pawprint.png" alt="" className="headerLogo"/>
             </div>
         </div>
-        { menuOpen? <Overlay/> : null }
+    
 
     </>
     )

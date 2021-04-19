@@ -1,0 +1,17 @@
+.flex{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.content{
+  
+ 
+  height: 100%;
+  width: 100%;
+
+  background-image: url('../img/welcome_bg.png');
+  background-repeat: repeat;
+  background-size:contain;
+
+  margin-top: 5%;
+}

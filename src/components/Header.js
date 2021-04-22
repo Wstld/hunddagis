@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import './Header.css'
 import {Link} from 'react-router-dom'
-import HelpBox from './HelpBox'
+import HelpBox from './HelpBox.js'
 
 
 
@@ -10,7 +10,7 @@ const PhoneMenu = (props) => {
     return(
         <div className="overlay">
             <i className="fas fa-times menu--phone_xbtn" onClick = {props.toggelMenu}></i>
-            <HelpBox></HelpBox>
+            <HelpBox/>
             <div className="menu--phone_cont">
                     <ul>
                         <img src="..\img\pawprint.png" alt="" className="menu--phone_Logo"/>

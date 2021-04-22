@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import HelpBox from '../components/HelpBox.jsx'
+import HelpBox from '../components/HelpBox.js'
 import Header from '../components/Header.js'
 import './welcome_pg.css'
 const WelcomePage = () => {
@@ -9,8 +9,6 @@ const WelcomePage = () => {
     })
     return(
         <>
-      
-            <Header/>
             <div className="body__container">
                 {wideScreen ? <HelpBox/> : null }
                 <div className="body__message-cotainer">

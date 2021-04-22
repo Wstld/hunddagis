@@ -5,15 +5,24 @@ class ApiGetter{
     }
    async makeApiCall(callback,errorCallback){
         fetch(this.callAdress)
-        .then(res => {
+        .then(res => res.json())
+        .then((result) => {
             if(callback != null){
-                callback(res.json)
-            }else{
-                console.error("No callback");
+                callback(result)
             }
-        }, (err) => {
-            errorCallback(err)
-        })
+            else{
+                console.error("No callback")
+            }
+        },
+        (error) => {
+            if (errorCallback != null){
+                errorCallback(error)
+            }else{
+                console.error(error)
+            }
+        }
+        
+        )
     }
 }
 

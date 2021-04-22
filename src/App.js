@@ -3,12 +3,16 @@ import './App.css';
 
 import React,{useState} from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import WelcomePage from './pages/welcome_pg.jsx';
+import WelcomePage from './pages/welcome_pg';
+import RegisterPage from './pages/register_pg';
+import Header from './components/Header';
+import DogProfile from './pages/dogProfile_pg';
 
 function App() {
   return (
     <div className="App">
-      <WelcomePage/>
+      <Header/>
+      <DogProfile/>
     </div>
   );
 }

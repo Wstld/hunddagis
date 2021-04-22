@@ -1,5 +1,185 @@
-.dog-profile__main-cont{}
-.dog-profile__dog-cont{}
-.dog-profile__firstrow{}
-.dog-profile__img{}
-.profile__gender{}
+.dog-profile__main-cont{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    justify-self: start;
+    width: 90%;
+  
+    font-family: 'roboto';
+    
+    box-shadow: 0px 4px 15px -1px rgba(0,0,0,0.64);
+    background-color: white;
+   
+
+    
+   
+}
+
+.dog-profile__dog-cont{
+    width: 100%;
+ 
+  
+    background-color: rgb(255, 255, 255);
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 30px;
+    padding-top:160px;
+    position: relative;
+
+}
+
+.dog-profile__name-outer-cont{
+    width:100%;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top:-40px; 
+    
+}
+.dog-profile__name-inner-cont{
+    text-align: center;
+    width: 80%;
+    padding-bottom: 20px;
+    background-color: white;
+    
+    box-shadow: 5px 5px 35px -20px #000000;
+}
+.dog-profile__name-inner-cont p{
+    margin:0;
+    color: rgb(68, 68, 68);
+    
+}
+
+
+
+.dog-profile__img{
+    background-image: url("https://images.dog.ceo/breeds/retriever-chesapeake/n02099849_3645.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    height: 250px;
+    width: 100%
+
+}
+
+.dog-profile__small-cont{
+    height: 80px;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(0deg, rgba(238,237,217,1) 12%, rgba(255,255,255,1) 59%);
+    border:solid 1px rgb(226, 226, 226);
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 5px 5px 35px -20px #000000;
+}
+
+.dog-profile__gender{
+    font-size: 40px;
+}
+.dog-profile__age{
+  font-size: 25px;
+  font-size: 35px;
+  margin: 0;
+  margin-bottom: -10px;
+}
+.dog-profile__age-sub{
+    margin: 0;
+}
+
+
+.dog-profile__name{
+ font-size: 45px;
+ margin-bottom: 0;
+ margin-top: 10px;   
+}
+
+.dog-profile__age-gen-box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dog-profile__nrbox{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    text-align: center;
+    width: 60%;
+    background: linear-gradient(0deg, rgba(238,237,217,1) 12%, rgba(255,255,255,1) 59%);
+    border-radius: 10px;
+    border:solid 1px rgb(226, 226, 226);
+    box-shadow: 5px 5px 35px -20px #000000;
+}
+.dog-profile__nrbox p{
+    margin:0;
+    margin-top: 3px;
+}
+.dog-profile__nrbox h2{
+    margin:0;
+    margin-top: 3px;
+    margin-bottom: 10px;
+}
+
+
+.dog-profile__owner-cont{
+    margin-top: 10px;
+    width: 80%;
+    align-self: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 35px -20px #000000;
+   
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 25px;
+  
+    
+}
+.dog-profile__owner-txt{
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+@media (min-width:4000px) {
+    .dog-profile__main-cont{}
+
+    .dog-profile__dog-cont{}
+
+    .dog-profile__firstrow{}
+
+    .dog-profile__img{}
+
+    .profile__gender{}
+
+    .dog-profile__secondrow{}
+
+    .dog-profile__name{}
+
+    .dog-profile__thirdrow{}
+
+    .dog-profile__owner-cont{}
+}

@@ -1,3 +1,4 @@
+
 .dog-profile__main-cont{
     margin-top: 50px;
     display: flex;
@@ -62,7 +63,7 @@
 
 
 .dog-profile__img{
-    background-image: url("https://images.dog.ceo/breeds/retriever-chesapeake/n02099849_3645.jpg");
+    
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

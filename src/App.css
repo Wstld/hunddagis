@@ -6,11 +6,17 @@ html, body, #root, .App {
     display: flex;
     flex-direction: column;
     padding-bottom: 5px;
+
+  
   }
 body{
-   
     background-color: rgb(245, 223, 163);
     
+}
+
+a{
+  color: inherit;
+  text-decoration: inherit;
 }
 
 

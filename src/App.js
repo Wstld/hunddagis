@@ -9,26 +9,13 @@ import Header from './components/Header';
 import DogProfile from './pages/dogProfile_pg';
 
 function App() {
-  let dog = {
-    name: "Molly",
-    sex: "female",
-    breed: "briard",
-    img: "https://images.dog.ceo/breeds/briard/n02105251_6840.jpg",
-    present: false,
-    age: 4,
-    chipNumber: "IEH455006",
-    owner: {
-      name: "Wilmer",
-      lastName: "Svensson",
-      phoneNumber: "0769239356"
-    }
-  }
+
   return (
     <Router>
       <div className="App">
         <Header />
         <Switch>
-          <Route path="/"> <WelcomePage/> </Route>
+          <Route exact path="/"> <WelcomePage/> </Route>
           <Route path="/register">  <RegisterPage/> </Route>
         </Switch>
       </div>

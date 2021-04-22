@@ -1,10 +1,11 @@
 
 class ApiGetter{
-    constructor(callAdress){
-        this.callAdress = callAdress; 
+    constructor(callAdress,abortController){
+        this.callAdress = callAdress;
+        this.abortController = abortController; 
     }
    async makeApiCall(callback,errorCallback){
-        fetch(this.callAdress)
+        fetch(this.callAdress, {signal: this.abortController})
         .then(res => res.json())
         .then((result) => {
             if(callback != null){
@@ -15,11 +16,16 @@ class ApiGetter{
             }
         },
         (error) => {
-            if (errorCallback != null){
-                errorCallback(error)
+            if(error.name === 'AbortError'){
+                console.log('fetch aborted')
             }else{
-                console.error(error)
+                if (errorCallback != null){
+                    errorCallback(error)
+                }else{
+                    console.error(error)
+                }
             }
+           
         }
         
         )

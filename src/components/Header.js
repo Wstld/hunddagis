@@ -14,9 +14,9 @@ const PhoneMenu = (props) => {
             <div className="menu--phone_cont">
                     <ul>
                         <img src="..\img\pawprint.png" alt="" className="menu--phone_Logo"/>
-                        <li>Register</li>
-                        <li>menu Item</li>
-                        <li>menu Item2</li>
+                        <Link to="/" onClick={props.toggelMenu}><li>Home</li></Link>
+                        <Link to="/register" onClick={props.toggelMenu}><li>Register</li></Link>
+                        <Link to="/" onClick={props.toggelMenu}><li>menu Item2</li></Link>
                     </ul>
             </div>
         </div>
@@ -27,9 +27,9 @@ const PhoneMenu = (props) => {
 const DesktopMenuBar = () => {
     return(
         <div className="menu--desktopBar">
-            <button className="menuBtn--desktop">Hejjj</button>
-            <button className="menuBtn--desktop">heeejj</button>
-            <button className="menuBtn--desktop">heejj</button>
+            <Link to="/" className="menuBtn--desktop"><p >Home</p></Link>
+            <Link to="/register" className="menuBtn--desktop"><p>Register</p></Link>
+            <Link to="/" className="menuBtn--desktop"><p>Item2</p></Link>
         </div>
     )
 }
@@ -64,7 +64,7 @@ const Header = () => {
             <div className="header_decore"></div>
             <div className="logo--cont">
                  <h2 className="headerHeadline">Doggy<br/>Daycare</h2>
-                <img src="..\img\pawprint.png" alt="" className="headerLogo"/>
+                  <Link to="/"><img src="..\img\pawprint.png" alt="" className="headerLogo"/></Link>
             </div>
         </div>
     

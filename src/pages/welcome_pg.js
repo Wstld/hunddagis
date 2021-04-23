@@ -1,12 +1,23 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import HelpBox from '../components/HelpBox.js'
-import Header from '../components/Header.js'
 import './welcome_pg.css'
 const WelcomePage = () => {
     const [wideScreen,setWideScreen] = useState(window.innerWidth > 1400 ? true : false)
-    window.addEventListener('resize',() => {
+    const reSize = () => {
         setWideScreen(window.innerWidth > 1400 ? true : false)
+    }
+    useEffect(()=>{
+        let isMounted = true
+        if(isMounted){
+            window.addEventListener('resize',reSize)
+        }
+        return () => {
+            window.removeEventListener('resize',reSize)
+            isMounted = false
+        }
     })
+    
+   
     return(
         <>
             <div className="body__container">

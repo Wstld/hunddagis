@@ -20,7 +20,11 @@ const GenderBox = (props) => {
 
 const DogProfile = () => {
     let { id } = useParams();
-    window.scrollTo(0,0)
+
+
+        window.scrollTo(0,0)
+
+    
 
     let dog = JSON.parse(localStorage.getItem('dogsList')).find((dog) => {
         return dog.chipNumber === id

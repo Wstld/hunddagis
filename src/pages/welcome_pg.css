@@ -30,7 +30,7 @@
 }
 .message__heart-cont{
     position: absolute;
-    top:-70px;
+    top:-73px;
     width: 100%;
     text-align: center;
 }
@@ -41,6 +41,10 @@
 }
 .message__headline{
     margin-top: 10%;
+}
+.message__body-text{
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 /*small box for small screen*/

@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import './Header.css'
 import {Link} from 'react-router-dom'
 import HelpBox from './HelpBox.js'
@@ -16,7 +16,7 @@ const PhoneMenu = (props) => {
                         <img src="..\img\pawprint.png" alt="" className="menu--phone_Logo"/>
                         <Link to="/" onClick={props.toggelMenu}><li>Home</li></Link>
                         <Link to="/register" onClick={props.toggelMenu}><li>Register</li></Link>
-                        <Link to="/" onClick={props.toggelMenu}><li>menu Item2</li></Link>
+                        <Link to="/" onClick={props.toggelMenu}><li>About</li></Link>
                     </ul>
             </div>
         </div>
@@ -29,24 +29,42 @@ const DesktopMenuBar = () => {
         <div className="menu--desktopBar">
             <Link to="/" className="menuBtn--desktop"><p >Home</p></Link>
             <Link to="/register" className="menuBtn--desktop"><p>Register</p></Link>
-            <Link to="/" className="menuBtn--desktop"><p>Item2</p></Link>
+            <Link to="/" className="menuBtn--desktop"><p>About</p></Link>
         </div>
     )
 }
 
 const Header = () => {
-    let wide = window.innerWidth > 1400 ? true : false;
-    const [wideMenu,setWideMenu] = useState(wide)
+    
+
+    const [wideMenu,setWideMenu] = useState(window.innerWidth > 1400 ? true : false)
     const [menuOpen,setMenuOpen] = useState(false)
+    
     const toggelMenu = () => {
-        setMenuOpen(!menuOpen);
+        setMenuOpen(!menuOpen);   
     }
-    window.addEventListener('resize',() => {
-        setWideMenu(window.innerWidth > 1400 ? true : false)
+
+    const reSize = () => {
         if(window.innerWidth>1400 && menuOpen){
             toggelMenu()
+            
+        }
+     
+        setWideMenu(window.innerWidth > 1400 ? true : false)
+        
+        
+    }
+    useEffect( () => {
+        var isMounted = true;
+        if(isMounted){
+            window.addEventListener('resize',reSize)
+        }
+        return () => { 
+            window.removeEventListener('resize',reSize);
+            isMounted = false;
         }
     })
+   
     return(
     <>  
         { menuOpen ? <PhoneMenu toggelMenu = {toggelMenu}/> : null }

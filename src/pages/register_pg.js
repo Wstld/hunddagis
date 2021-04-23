@@ -1,10 +1,10 @@
 import './register_pg.css'
-import {Link, useParams, useRouteMatch, Route, Switch } from 'react-router-dom'
+import {Link, useRouteMatch, Route, Switch } from 'react-router-dom'
 import React,{useEffect, useState} from 'react'
-import ApiGetter from '../util/fetchApi'
-import Spinner from '../components/Spinner'
-import ErrorMsg from '../components/ErrorMsg'
-import DogProfile from './dogProfile_pg'
+import ApiGetter from '../util/fetchApi.js'
+import Spinner from '../components/Spinner.js'
+import ErrorMsg from '../components/ErrorMsg.js'
+import DogProfile from './dogProfile_pg.js'
 
 const DogRow = (props) => {
     return (
@@ -27,7 +27,7 @@ const RegisterPage = () => {
    const [loading, setLoading] = useState(true);
    const [loadingErr, setLoadingErr] = useState(false)
    const [errorMsg, setErrorMsg] = useState()
-   const [dogList, setDogList] = useState([]);
+
    const [filteredDogList, setFilteredDogList] = useState([])
    
     
@@ -47,34 +47,32 @@ const RegisterPage = () => {
    }
     
     useEffect(() => {
-        
-        if(localStorage.getItem('dogsList') === null){
-            const abort = new AbortController()
-            let api = new ApiGetter("https://api.jsonbin.io/b/607ebd1cf099765deef83599",abort.signal)
-            api.makeApiCall(
-                (res) => {
-                    setLoading(false)
-
-                    localStorage.setItem('dogsList',JSON.stringify(res))
-                    
-                    setFilteredDogList(res)
-                },
-                (err) => {
-                    setErrorMsg(`${err}`)
-                    setLoading(false)
-                    setLoadingErr(true)
-                }
-            )
-            return () => abort.abort()
-        }else{
-            
-            setFilteredDogList(JSON.parse(localStorage.getItem('dogsList')))
-            setLoading(false)
-        }
-        },[])
-        
+       
+            if(localStorage.getItem('dogsList') === null){
+                const abort = new AbortController()
+                let api = new ApiGetter("https://api.jsonbin.io/b/607ebd1cf099765deef83599",abort.signal)
+                api.makeApiCall(
+                    (res) => {
+                        setLoading(false)
     
-    console.log(url)
+                        localStorage.setItem('dogsList',JSON.stringify(res))
+                        
+                        setFilteredDogList(res)
+                    },
+                    (err) => {
+                        setErrorMsg(`${err}`)
+                        setLoading(false)
+                        setLoadingErr(true)
+                    }
+                )
+                return () => abort.abort()
+            }else{
+                setFilteredDogList(JSON.parse(localStorage.getItem('dogsList')))
+                setLoading(false)
+            }
+      
+     
+        },[])
  
     return(
         <Switch>
@@ -82,11 +80,11 @@ const RegisterPage = () => {
             <DogProfile></DogProfile>
         </Route>
         <Route exact path = {`${url}/`}>
-        
-        <div className="body__container-regPage">
         {loading ? <Spinner/> : 
             null
         }
+           
+        <div className="body__container-regPage">
         {loadingErr ? <ErrorMsg errorMsg={errorMsg}/> : null}
         
           <div className="register__main-container">
@@ -94,7 +92,7 @@ const RegisterPage = () => {
                 <input type="text" className="register__searchbar-input" onChange={filterDogs} onKeyDown={hideKeyboard}/>
                 <i className="fas fa-search register__search-icon" ></i>
             </div>
-           
+        
            {!filteredDogList.length ? null : filteredDogList.map(dog => {
                return <DogRow dog={dog} key={dog.chipNumber} link={url}/>}) 
            }

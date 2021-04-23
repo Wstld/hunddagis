@@ -1,19 +1,19 @@
 
 import './App.css';
 
-import React, { useState } from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import WelcomePage from './pages/welcome_pg';
-import RegisterPage from './pages/register_pg';
-import Header from './components/Header';
-import DogProfile from './pages/dogProfile_pg';
+import WelcomePage from './pages/welcome_pg.js';
+import RegisterPage from './pages/register_pg.js';
+import Header from './components/Header.js';
+
 
 function App() {
 
   return (
     <Router>
       <div className="App">
-        <Header />
+        <Header></Header>
         <Switch>
           <Route exact path="/"> <WelcomePage/> </Route>
           <Route path="/register">  <RegisterPage/> </Route>

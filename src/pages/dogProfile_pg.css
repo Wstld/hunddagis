@@ -68,7 +68,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     
-    height: 250px;
+    height: 270px;
     width: 100%
 
 }
@@ -164,23 +164,84 @@
     margin-top: 3px;
     margin-bottom: 3px;
 }
+@media (min-width:365px) {
+    
 
-@media (min-width:4000px) {
-    .dog-profile__main-cont{}
-
-    .dog-profile__dog-cont{}
-
-    .dog-profile__firstrow{}
-
-    .dog-profile__img{}
-
-    .profile__gender{}
-
-    .dog-profile__secondrow{}
-
-    .dog-profile__name{}
-
-    .dog-profile__thirdrow{}
-
-    .dog-profile__owner-cont{}
+    .dog-profile__img{
+        height: 400px;
+    }
 }
+@media (min-width:360px) {
+    
+    .dog-profile__main-cont{
+        width: 80%;
+      
+    }
+    .dog-profile__img{
+        height: 400px;
+    }
+}
+
+@media (min-width:500px) {
+    
+    .dog-profile__main-cont{
+        width: 70%;
+      
+    }
+    .dog-profile__img{
+        height: 450px;
+    }
+}
+@media (min-width:500px) {
+    
+    .dog-profile__main-cont{
+        width: 60%;   
+    }
+    .dog-profile__img{
+        height: 450px;
+    }
+}
+@media (min-width:740px) {
+    .dog-profile__main-cont{
+        width: 60%;
+    
+      
+    }
+
+    .dog-profile__img{
+        height: 60vh;
+    }
+}
+@media (min-width:1000px) {
+    .dog-profile__main-cont{
+        width: 70%;
+    
+      
+    }
+
+    .dog-profile__img{
+        height: 60vh;
+    }
+}
+@media (min-width:1300px) {
+    .dog-profile__main-cont{
+        width: 40%;
+    
+      
+    }
+
+    .dog-profile__img{
+        height: 60vh;
+    }
+}
+@media (min-width:1367px) {
+    .dog-profile__main-cont{
+        width: 30%;
+    
+      
+    }
+
+}
+
+
+

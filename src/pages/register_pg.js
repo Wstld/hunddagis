@@ -1,6 +1,6 @@
 import './register_pg.css'
-import {Link, useRouteMatch, Route, Switch } from 'react-router-dom'
-import React,{useEffect, useState} from 'react'
+import {Link, useRouteMatch, Route, Switch} from 'react-router-dom'
+import React,{useEffect, useState, useRef} from 'react'
 import ApiGetter from '../util/fetchApi.js'
 import Spinner from '../components/Spinner.js'
 import ErrorMsg from '../components/ErrorMsg.js'
@@ -26,7 +26,7 @@ const RegisterPage = () => {
     const { url, path } = useRouteMatch();
    const [loading, setLoading] = useState(true);
    const [loadingErr, setLoadingErr] = useState(false)
-   const [errorMsg, setErrorMsg] = useState()
+   let errorMsg = useRef(null) 
 
    const [filteredDogList, setFilteredDogList] = useState([])
    
@@ -60,15 +60,22 @@ const RegisterPage = () => {
                         setFilteredDogList(res)
                     },
                     (err) => {
-                        setErrorMsg(`${err}`)
+                        errorMsg.current = `${err}`
                         setLoading(false)
                         setLoadingErr(true)
                     }
                 )
                 return () => abort.abort()
             }else{
-                setFilteredDogList(JSON.parse(localStorage.getItem('dogsList')))
-                setLoading(false)
+                try {
+                    setFilteredDogList(JSON.parse(localStorage.getItem('dogsList')))
+                    setLoading(false)
+                } catch (err) {
+                    errorMsg.current = `${err}`
+                    setLoading(false)
+                    setLoadingErr(true)
+                }
+               
             }
       
      
@@ -85,7 +92,7 @@ const RegisterPage = () => {
         }
            
         <div className="body__container-regPage">
-        {loadingErr ? <ErrorMsg errorMsg={errorMsg}/> : null}
+        {loadingErr ? <ErrorMsg forwardRef={errorMsg}/> : null}
         
           <div className="register__main-container">
             <div className="register__searchbar">

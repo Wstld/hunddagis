@@ -21,7 +21,6 @@ const GenderBox = (props) => {
 const DogProfile = () => {
     let { id } = useParams();
 
-
         window.scrollTo(0,0)
 
     

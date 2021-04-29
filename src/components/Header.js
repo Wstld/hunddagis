@@ -2,6 +2,8 @@ import React,{useState, useEffect} from 'react'
 import './Header.css'
 import {Link} from 'react-router-dom'
 import HelpBox from './HelpBox.js'
+import LogoImg from '../img/pawprint.png'
+import HeaderBG from '../img/dog_bg.jpg'
 
 
 
@@ -13,7 +15,7 @@ const PhoneMenu = (props) => {
             <HelpBox/>
             <div className="menu--phone_cont">
                     <ul>
-                        <img src="..\img\pawprint.png" alt="" className="menu--phone_Logo"/>
+                        <img src={LogoImg} alt="" className="menu--phone_Logo"/>
                         <Link to="/" onClick={props.toggelMenu}><li>Home</li></Link>
                         <Link to="/register" onClick={props.toggelMenu}><li>Register</li></Link>
                         <Link to="/" onClick={props.toggelMenu}><li>About</li></Link>
@@ -69,7 +71,7 @@ const Header = () => {
     <>  
         { menuOpen ? <PhoneMenu toggelMenu = {toggelMenu}/> : null }
        
-        <div className="header">
+        <div className="header" style={{backgroundImage: `url("${HeaderBG}")`}}>
             {
                 wideMenu ? 
                 <DesktopMenuBar/>
@@ -82,7 +84,7 @@ const Header = () => {
             <div className="header_decore"></div>
             <div className="logo--cont">
                  <h2 className="headerHeadline">Doggy<br/>Daycare</h2>
-                  <Link to="/"><img src="..\img\pawprint.png" alt="" className="headerLogo"/></Link>
+                  <Link to="/"><img src={LogoImg} alt="" className="headerLogo"/></Link>
             </div>
         </div>
     

@@ -11,7 +11,7 @@ import Header from './components/Header.js';
 function App() {
 
   return (
-    <Router>
+    <Router basename="/dd">
       <div className="App">
         <Header></Header>
         <Switch>

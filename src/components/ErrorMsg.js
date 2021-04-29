@@ -9,7 +9,7 @@ const ErrorMsg = (props) => {
         <div className="container">
             <div className="message-container">
                 <h2>ERROR</h2>
-                <p className="errorMsg">{props.errorMsg}</p>
+                <p className="errorMsg">{props.forwardRef.current}</p>
                 <p className="errorMsg-end">Smash the refresh button to give it another go!</p>
             </div>
             <button className="btn__refresh" onClick={refresh}>
